@@ -14,6 +14,7 @@ namespace coursework
         int centerY;
         Point[] points;
         public Color colour;
+        int radius = 50;
         public Side(int centX, int centY)
         {
             centerX = centX;
@@ -21,18 +22,18 @@ namespace coursework
             colour = Color.White;
             points = new Point[]
             {
-                new Point(centerX,centerY+50),
-                new Point((int)(centerX - 25*Math.Sqrt(3)),centerY-25),
-                new Point((int)(centerX + 25*Math.Sqrt(3)),centerY-25),
+                new Point(centerX,centerY+radius),
+                new Point((int)(centerX - radius/2*Math.Sqrt(3)),centerY-radius/2),
+                new Point((int)(centerX + radius/2*Math.Sqrt(3)),centerY-radius/2),
             };
         }
         private Point[] Flip()
         {
             return points = new Point[]
             {
-                new Point(centerX,centerY-50),
-                new Point((int)(centerX - 25*Math.Sqrt(3)),centerY+25),
-                new Point((int)(centerX + 25*Math.Sqrt(3)),centerY+25),
+                new Point(centerX,centerY-radius),
+                new Point((int)(centerX - radius/2*Math.Sqrt(3)),centerY+radius/2),
+                new Point((int)(centerX + radius/2*Math.Sqrt(3)),centerY+radius/2),
             };
         }
         public void Draw(bool flip)
@@ -61,7 +62,7 @@ namespace coursework
             System.Threading.Thread.Sleep(250);
 
             int color = GetRandomNumber();
-            Color[] colors = {Color.Red, Color.Blue, Color.Green, Color.Violet};
+            Color[] colors = { Color.Red, Color.Blue, Color.Green, Color.Yellow} ;
             colour = colors[color];
             System.Threading.Thread.Sleep(250);
 
